@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Grootslang | Healthcare Operations Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: #111111;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* navigation */
+    .navbar {
+      padding: 28px 0;
+      background: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #EAEAEA;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #0A2B2E 0%, #1C5C4B 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2C3E3F;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: #1A6D5A;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #1A6D5A;
+      background: transparent;
+      padding: 8px 24px;
+      border-radius: 32px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #1A6D5A;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover {
+      background: #1A6D5A;
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 90px;
+      background: #FCFCF9;
+      border-bottom: 1px solid #EFEFEA;
+    }
+
+    .hero-grid {
+      display: flex;
+      gap: 70px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1.1;
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #1A6D5A;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: #0C2E2B;
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #4B5F5C;
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: #0C2E2B;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: #1A5C50;
+      transform: translateY(-1px);
+    }
+
+    .hero-image {
+      flex: 1;
+      background: #EFF3F0;
+      height: 380px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2C6B5C;
+      background-image: radial-gradient(circle at 20% 40%, rgba(26,109,90,0.03) 2%, transparent 2.5%);
+      background-size: 24px 24px;
+      border: 1px solid #E2E7E2;
+    }
+
+    /* Sections */
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-subhead {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      color: #1A6D5A;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0C2E2B;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: #4B5F5C;
+      max-width: 700px;
+      margin-bottom: 56px;
+    }
+
+    .card-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      background: #FFFFFF;
+      padding: 36px 28px;
+      border-radius: 24px;
+      border: 1px solid #ECEFEC;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: #CFDCD6;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 28px;
+    }
+
+    .card h3 {
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #0C2E2B;
+    }
+
+    .card p {
+      color: #4F6863;
+      line-height: 1.5;
+    }
+
+    /* Stats */
+    .stats-bar {
+      background: #0C2E2B;
+      color: white;
+      padding: 68px 0;
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .stat-item h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .stat-item p {
+      color: #C9DFD8;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Two column */
+    .two-col-section {
+      display: flex;
+      gap: 80px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .col-text {
+      flex: 1;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .check-list li {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: #1F3E3A;
+    }
+
+    .col-image {
+      flex: 1;
+      background: #F0F5F2;
+      border-radius: 28px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2A6B5C;
+      border: 1px solid #E0EAE4;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: #FCFCF9;
+      padding: 90px 0;
+      border-top: 1px solid #EFEFEA;
+      border-bottom: 1px solid #EFEFEA;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0C2E2B;
+      margin-bottom: 18px;
+    }
+
+    .btn-cta {
+      background: #0C2E2B;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: white;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background: #1A5C50;
+    }
+
+    footer {
+      background: #FFFFFF;
+      padding: 48px 0;
+      text-align: center;
+      color: #6B8A83;
+      font-size: 0.8rem;
+      border-top: 1px solid #ECEFEC;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 28px;
+      padding: 40px;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .modal-content h2 {
+      color: #0C2E2B;
+      margin-bottom: 12px;
+    }
+
+    .modal-content input, .modal-content textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #DDD;
+      border-radius: 12px;
+      font-family: inherit;
+    }
+
+    .modal-content button {
+      background: #0C2E2B;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-text h1 { font-size: 2.7rem; }
+      .container { padding: 0 24px; }
+      .nav-links { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <div class="logo" onclick="window.location.reload()">Grootslang</div>
+    <div class="nav-links">
+      <a onclick="openModal('approach')">Approach</a>
+      <a onclick="openModal('expertise')">Expertise</a>
+      <a onclick="openModal('insights')">Insights</a>
+      <a onclick="openModal('practices')">Practices</a>
+    </div>
+    <button class="btn-outline" onclick="openModal('contact')">Contact</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-badge">OPERATIONAL EXCELLENCE · HEALTHCARE</div>
+      <h1>Precision operations for independent practices</h1>
+      <p>Grootslang delivers Bain-grade strategy and McKinsey-level rigor — purpose-built for small practices seeking scalable growth and margin expansion.</p>
+      <button class="btn-primary" onclick="openModal('schedule')">Schedule diagnostic →</button>
+    </div>
+    <div class="hero-image">
+      ⚡ data-driven practice performance model
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-subhead">HOW WE WORK</div>
+    <div class="section-title">Systematic, evidence-based transformation</div>
+    <div class="section-desc">We don't just deliver slide decks. We embed operational muscle into your practice, from front desk to revenue cycle management.</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Diagnostic & benchmarks</h3>
+        <p>72-hour operational audit: patient flow, scheduling efficiency, A/R aging, staff utilization, and revenue leakage points.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Lean workflow redesign</h3>
+        <p>Reduce wait times by 30%+ and eliminate administrative waste using clinical lean methods adapted for small teams.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Performance dashboards</h3>
+        <p>Real-time KPIs: no-show rates, collection yield, referral conversion, and provider RVU efficiency — live tracking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="container stats-grid">
+    <div class="stat-item"><h2>32%</h2><p>average reduction in A/R days</p></div>
+    <div class="stat-item"><h2>$187k</h2><p>first-year cost savings (typical practice)</p></div>
+    <div class="stat-item"><h2>5.2x</h2><p>ROI within 18 months</p></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container two-col-section">
+    <div class="col-text">
+      <div class="section-subhead">DIFFERENTIATORS</div>
+      <div class="section-title">Strategy firm precision, boutique partnership</div>
+      <p style="color: #4F6863; margin-bottom: 16px;">Unlike large consultancies, Grootslang embeds directly with your team. We combine high-level strategy with hands-on execution — no legacy overhead, no junior-only teams.</p>
+      <ul class="check-list">
+        <li><span>✓</span> Former healthcare operators & ex-MBB consultants</li>
+        <li><span>✓</span> Flat-rate engagement models — no hourly traps</li>
+        <li><span>✓</span> Implementation sprints (8–12 weeks to visible results)</li>
+        <li><span>✓</span> HIPAA / SOC2 operational frameworks built-in</li>
+      </ul>
+    </div>
+    <div class="col-image">
+      🧩 Practice Ops Maturity Framework
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-subhead">SOLUTIONS</div>
+    <div class="section-title">Tailored for small-to-mid practices</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">💰</div>
+        <h3>Revenue cycle overhaul</h3>
+        <p>Denial management, coding compliance, payer contract optimization — increase net collection rate by 12–18%.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🩺</div>
+        <h3>Clinical flow efficiency</h3>
+        <p>Reduce patient throughput time, improve MA-to-provider ratios, and optimize room turnover protocols.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Strategic growth ops</h3>
+        <p>New patient acquisition modeling, scheduling capacity planning, and referral partner integration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Ready to build a more resilient practice?</h2>
+    <p>Join the 120+ independent practices that have transformed operations with Grootslang. Start with a zero-commitment diagnostic review.</p>
+    <button class="btn-cta" onclick="openModal('consult')">Request consultation →</button>
+    <div style="margin-top: 28px; font-size: 0.75rem; color: #7B9A92;">No obligation · 30-min strategy call</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom: 12px;">© 2025 Grootslang Healthcare Operations — Data-driven, human-centered excellence</p>
+    <p style="font-size: 0.7rem;">📧 hello@grootslang.com · 📞 (212) 555-0870</p>
+  </div>
+</footer>
+
+<!-- Modal Container -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+  function openModal(type) {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    
+    const content = {
+      approach: `<h2>Our Approach</h2><p>At Grootslang, we follow a proven three-phase methodology:</p><ul style="margin-top: 16px; margin-left: 20px;"><li><strong>1. Discovery & Diagnostics</strong> — 72-hour deep dive into your operations, revenue cycle, and patient flow.</li><li><strong>2. Redesign & Implementation</strong> — Co-create workflows with your team, deploy lean tools, and train staff.</li><li><strong>3. Sustain & Scale</strong> — Handoff dashboards, SOPs, and monthly check-ins for continuous improvement.</li></ul><p style="margin-top: 20px;">Every engagement is customized for your practice size, specialty, and goals.</p>`,
+      
+      expertise: `<h2>Our Expertise</h2><p>We specialize in six core areas of practice operations:</p><ul style="margin-top: 16px; margin-left: 20px;"><li>🏥 Revenue Cycle Management & Denial Prevention</li><li>⚕️ Clinical Workflow Optimization</li><li>📋 Patient Scheduling & No-Show Reduction</li><li>💳 Payer Contract & Fee Schedule Analysis</li><li>📊 Data Analytics & Operational Dashboards</li><li>👥 Staff Training & Change Management</li></ul><p style="margin-top: 20px;">Our team includes former practice administrators and ex-McKinsey operations leads.</p>`,
+      
+      insights: `<h2>Latest Insights</h2><p>Stay ahead with Grootslang's research and industry perspectives:</p><ul style="margin-top: 16px; margin-left: 20px;"><li><strong>📄 Whitepaper:</strong> "The $120K Leak: How Small Practices Lose Revenue" — Download free</li><li><strong>📊 Webinar:</strong> "AI in Practice Ops: What Actually Works" — March 25, 2025</li><li><strong>📈 Case Study:</strong> How a 4-provider practice increased collections by 22% in 90 days</li><li><strong>🎙️ Podcast:</strong> "The Ops Rx" — Weekly insights for practice leaders</li></ul><p style="margin-top: 20px;"><a href="#" style="color:#1A6D5A;">Subscribe to our newsletter →</a></p>`,
+      
+      practices: `<h2>Practices We Serve</h2><p>Grootslang partners with independent practices across specialties:</p><ul style="margin-top: 16px; margin-left: 20px;"><li>🩺 Primary Care & Family Medicine</li><li>❤️ Cardiology & Specialty Care</li><li>🦷 Dental & Oral Surgery Groups</li><li>🧠 Behavioral Health & Psychiatry</li><li>🏋️ Physical Therapy & Rehab</li><li>👁️ Ophthalmology & Optometry</li></ul><p style="margin-top: 20px;">Practice size: 2–25 providers. We scale our engagement to fit you.</p>`,
+      
+      contact: `<h2>Contact Grootslang</h2><p>Reach out to our team for a confidential conversation about your practice's operations.</p><form id="contactForm"><input type="text" placeholder="Full name" required><input type="email" placeholder="Email address" required><input type="tel" placeholder="Phone (optional)"><textarea rows="3" placeholder="Tell us about your practice..."></textarea><button type="submit">Send message →</button></form><p style="margin-top: 16px; font-size: 0.8rem;">Or email us directly: <strong>hello@grootslang.com</strong><br>Call: <strong>(212) 555-0870</strong></p>`,
+      
+      schedule: `<h2>Schedule a Diagnostic</h2><p>Choose a 30-minute slot for a no-obligation operational review. We'll analyze your current metrics and share 2-3 immediate opportunities.</p><form id="scheduleForm"><input type="text" placeholder="Full name" required><input type="email" placeholder="Email" required><input type="tel" placeholder="Phone" required><select><option>Select practice size</option><option>Solo practice</option><option>2-5 providers</option><option>6-15 providers</option><option>16+ providers</option></select><button type="submit">Request a call →</button></form><p style="margin-top: 16px; font-size: 0.8rem;">We'll reply within 12 business hours.</p>`,
+      
+      consult: `<h2>Request a Consultation</h2><p>Let's discuss how Grootslang can help your practice achieve operational excellence.</p><form id="consultForm"><input type="text" placeholder="Full name" required><input type="email" placeholder="Email" required><input type="tel" placeholder="Phone" required><textarea rows="3" placeholder="What's your biggest operational challenge right now?"></textarea><button type="submit">Submit request →</button></form><p style="margin-top: 16px; font-size: 0.8rem;">All consultations are confidential and free.</p>`
+    };
+    
+    modalBody.innerHTML = content[type] || `<h2>Coming Soon</h2><p>This section is being updated. Check back soon!</p>`;
+    modal.style.display = 'flex';
+    
+    // Handle form submissions
+    const form = modalBody.querySelector('form');
+    if (form) {
+      form.onsubmit = function(e) {
+        e.preventDefault();
+        alert('✓ Thank you! A Grootslang team member will reach out within 24 hours.');
+        closeModal();
+      };
+    }
+  }
+  
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+  
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target === modal) closeModal();
+  }
+</script>
+
+</body>
+</html>
